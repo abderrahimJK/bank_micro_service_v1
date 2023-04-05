@@ -14,7 +14,18 @@ import java.util.List;
 @Data
 public class BankController {
 
+    @Autowired
+    AccountServiceImpl accountService;
 
+    @GetMapping("/accounts")
+    public List<Account> getAllAccount(){
+        return accountService.getAllAccount();
+    }
+
+    @GetMapping("/account/{id}")
+    public Account getAccount(@PathVariable long id){
+        return accountService.getAccount(id);
+    }
 
 
 }
