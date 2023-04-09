@@ -16,7 +16,9 @@ public class AccountServiceImpl implements AccountService{
     AccountRepository accountRepository;
     @Override
     public void save(Account a) {
-
+        Account account = accountRepository.findOne(a.getId());
+        if (account == null)
+            accountRepository.save(a);
     }
 
     @Override

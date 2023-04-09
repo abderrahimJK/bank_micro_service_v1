@@ -27,5 +27,10 @@ public class BankController {
         return accountService.getAccount(id);
     }
 
+    @PostMapping
+    public void addAccount(@RequestBody Account account){
+
+        accountService.save(account);
+    }
 
 }
